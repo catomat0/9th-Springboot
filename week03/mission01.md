@@ -16,7 +16,9 @@ GET `/api/feed/home`
 
 ## Request Header
 - `Authorization: Bearer <JWT>`
-- `Content-Type: application/json`
+
+## Request Body
+- 없음
 
 ## Response Body
 
@@ -33,20 +35,16 @@ GET `/api/feed/home`
       "missionDue": 7,
       "storeId": 55,
       "storeName": "반이학생마라탕",
-      "storeType": "CHINESE",
-      "regionId": 3,
-      "regionName": "서울 성북구"
+      "storeType": "CHINESE"
     },
     {
       "missionId": 102,
       "missionPoint": 500,
-      "missionCost": 10000,
+      "missionCost": 12000,
       "missionDue": 7,
       "storeId": 66,
       "storeName": "동방칼국수",
-      "storeType": "KOREAN",
-      "regionId": 5,
-      "regionName": "서울 성북구"
+      "storeType": "KOREAN"
     },
     
     ...
@@ -58,3 +56,4 @@ GET `/api/feed/home`
   "totalPages": 15,
   "sort": ["createdAt,DESC", "missionId,DESC"]
 }
+```

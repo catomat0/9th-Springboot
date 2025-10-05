@@ -3,7 +3,7 @@
 # 미션 성공 버튼 API 명세
 
 ## Endpoint
-POST `/api/mission/user_mission/{userMissionId}`
+POST `/api/userMissions/{userMissionId}/success`
 
 ## Path Variable
 - `userMissionId` : 진행 중인 유저의 미션의 ID (PK)
@@ -13,16 +13,17 @@ POST `/api/mission/user_mission/{userMissionId}`
 
 ## Request Header
 - `Authorization: Bearer <JWT>`
-- `Content-Type: application/json`
+
+# Request Body
+- 없음
 
 ## Response Body
 
 ```json
 {
   "userMissionId" : 50,
-  "userId" : 10,
   "missionId" : 110,
-  "missionCode" : 20251003291021,
-  "userMissionStatus" : "SUCCESS",
-  "userPoint" : 1500
+  "missionCode" : "20251003291021",
+  "userMissionStatus" : "SUCCESS"
 }
+```

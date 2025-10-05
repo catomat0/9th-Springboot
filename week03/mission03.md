@@ -3,7 +3,7 @@
 # 미션 목록 조회(진행중 / 진행 완료) API 명세
 
 ## Endpoint
-GET `/api/v1/user_missions`
+GET `/api/user_missions`
 
 ## Path Variable
 - 없음
@@ -17,7 +17,9 @@ GET `/api/v1/user_missions`
 
 ## Request Header
 - `Authorization: Bearer <JWT>`
-- `Content-Type: application/json`
+
+## Request Body
+- 없음
 
 ## Response Body
 
@@ -26,7 +28,7 @@ GET `/api/v1/user_missions`
   
   "inProgress": {
     
-    items: [
+    "items": [
         
         {
           "missionId": 101,
@@ -36,7 +38,7 @@ GET `/api/v1/user_missions`
           "storeId": 55,
           "storeName": "반이학생마라탕",
           "storeType": "CHINESE",
-          "regionId": 3,
+          "regionId": 5,
           "regionName": "서울 성북구"
         },
         {
@@ -52,18 +54,12 @@ GET `/api/v1/user_missions`
         },
         
         ...
-      ],
-      
-      "page": 0,
-      "size": 10,
-      "totalElements": 125,
-      "totalPages": 13,
-      "sort": ["createdAt,DESC", "missionId,DESC"]
+      ]
   },
   
   "success": {
   
-    items : [
+    "items" : [
         
         {
           "missionId": 101,
@@ -73,7 +69,7 @@ GET `/api/v1/user_missions`
           "storeId": 55,
           "storeName": "반이학생마라탕",
           "storeType": "CHINESE",
-          "regionId": 3,
+          "regionId": 5,
           "regionName": "서울 성북구"
         },
         {
@@ -87,15 +83,15 @@ GET `/api/v1/user_missions`
           "regionId": 5,
           "regionName": "서울 성북구"
         },
-        
         ...
-      ],
-      
-      "page": 0,
-      "size": 10,
-      "totalElements": 125,
-      "totalPages": 13,
-      "sort": ["createdAt,DESC", "missionId,DESC"]
-  }
+      ]
+  },
+
+  "page": 0,
+  "size": 10,
+  "totalElements": 125,
+  "totalPages": 13,
+  "sort": ["createdAt,DESC", "missionId,DESC"]
   
 }
+```
