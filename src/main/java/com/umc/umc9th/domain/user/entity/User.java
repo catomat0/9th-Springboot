@@ -1,7 +1,7 @@
 package com.umc.umc9th.domain.user.entity;
 
 import com.umc.umc9th.domain.address.entity.Address;
-import com.umc.umc9th.domain.mission.userMission.UserMission;
+import com.umc.umc9th.domain.mission.userMission.entity.UserMission;
 import com.umc.umc9th.domain.question.entity.Question;
 import com.umc.umc9th.domain.review.entity.Review;
 import com.umc.umc9th.domain.review.reviewComment.entity.ReviewComment;
@@ -62,6 +62,9 @@ public class User extends BaseEntity {
 
     @Column(name = "user_email", length = 255)
     private String userEmail;
+
+    @Column(name = "user_phone", length = 16)
+    private String userPhone;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "address_id", unique = true)

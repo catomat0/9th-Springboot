@@ -1,4 +1,4 @@
-package com.umc.umc9th.domain.mission.userMission;
+package com.umc.umc9th.domain.mission.userMission.entity;
 
 import com.umc.umc9th.domain.mission.entity.Mission;
 import com.umc.umc9th.domain.mission.entity.MissionStatus;

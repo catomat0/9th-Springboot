@@ -1,6 +1,6 @@
 package com.umc.umc9th.domain.mission.entity;
 
-import com.umc.umc9th.domain.mission.userMission.UserMission;
+import com.umc.umc9th.domain.mission.userMission.entity.UserMission;
 import com.umc.umc9th.domain.store.entity.Store;
 import com.umc.umc9th.global.entity.BaseEntity;
 import jakarta.persistence.*;
