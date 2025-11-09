@@ -17,30 +17,25 @@ import java.util.Optional;
 public interface UserMissionRepository extends JpaRepository<UserMission, Long> {
 
     // 미션 탭 - 진행중 미션 (남은 일수 포함)
-    @Query("""
-        select new com.umc.umc9th.domain.mission.userMission.dto.response.UserMissionInProgressResponse(
-            um.id,
-            um.missionStatus,
-            um.createdAt,
-            m.id,
-            m.missionPoint,
-            m.missionCost,
-            s.id,
-            s.storeName,
-            (m.missionDue - function('timestampdiff','DAY', um.createdAt, current_timestamp))
-        )
-        from UserMission um
-        join um.mission m
-        left join m.store s
-        where um.user.id = :userId
-          and um.missionStatus = com.umc.umc9th.domain.mission.entity.MissionStatus.IN_PROGRESS
-          and function('timestampdiff','DAY', um.createdAt, current_timestamp) < m.missionDue
-        order by um.createdAt desc, um.id desc
-    """)
-    Page<UserMissionInProgressResponse> findInProgressMissions(
-            @Param("userId") Long userId,
-            Pageable pageable
-    );
+    @Query(value = """
+select *
+from user_mission um
+where um.user_id = :userId
+  and um.mission_status = 'IN_PROGRESS'
+  and timestampdiff(second, um.created_at, now()) < :limit
+""",
+            countQuery = """
+select count(*)
+from user_mission um
+where um.user_id = :userId
+  and um.mission_status = 'IN_PROGRESS'
+  and timestampdiff(second, um.created_at, now()) < :limit
+""",
+            nativeQuery = true)
+    Page<UserMission> findInProgressMissions(@Param("userId") Long userId,
+                                             @Param("limit") long limit,
+                                             Pageable pageable);
+
 
     // 미션 탭 -  진행 완료 미션
     @Query("""

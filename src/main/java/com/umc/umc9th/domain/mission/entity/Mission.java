@@ -42,10 +42,9 @@ public class Mission extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "store_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Store store;
 
-    @OneToMany(mappedBy = "mission", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @Builder.Default
+    @OneToMany(mappedBy = "mission", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<UserMission> userMissions = new ArrayList<>();
 }

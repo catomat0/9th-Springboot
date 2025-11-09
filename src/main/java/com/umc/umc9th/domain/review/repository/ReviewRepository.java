@@ -3,9 +3,10 @@ package com.umc.umc9th.domain.review.repository;
 import com.umc.umc9th.domain.review.entity.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import org.springframework.data.repository.query.Param;
 
-public interface ReviewRepository extends JpaRepository<Review, Long> {
+public interface ReviewRepository extends JpaRepository<Review, Long>, ReviewQueryDsl, QuerydslPredicateExecutor<Review> {
 
     // 리뷰 작성
     @Query("""

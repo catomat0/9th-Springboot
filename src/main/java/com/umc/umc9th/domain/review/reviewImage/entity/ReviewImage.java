@@ -24,6 +24,5 @@ public class ReviewImage {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "review_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Review review;
 }

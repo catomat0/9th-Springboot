@@ -28,11 +28,9 @@ public class UserMission extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "mission_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Mission mission;
 }

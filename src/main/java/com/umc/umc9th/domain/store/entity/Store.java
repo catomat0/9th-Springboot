@@ -50,13 +50,5 @@ public class Store extends BaseEntity {
     @OneToMany(mappedBy = "store", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @Builder.Default
     private List<Mission> missions = new ArrayList<>();
+
 }
-
-
-
-
-
-
-
-
-

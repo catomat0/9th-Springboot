@@ -22,11 +22,9 @@ public class UserTerm {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "term_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Term term;
 }

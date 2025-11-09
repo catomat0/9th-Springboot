@@ -39,7 +39,7 @@ public class Review extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "store_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+
     private Store store;
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.REMOVE, orphanRemoval = true)

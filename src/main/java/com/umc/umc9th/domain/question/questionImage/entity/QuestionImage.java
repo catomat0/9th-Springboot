@@ -24,6 +24,5 @@ public class QuestionImage {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "question_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     private Question question;
 }

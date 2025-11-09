@@ -86,8 +86,8 @@ public class User extends BaseEntity {
     @Builder.Default
     private List<ReviewComment> reviewComments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     @Builder.Default
+    @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<UserMission> userMissions = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
