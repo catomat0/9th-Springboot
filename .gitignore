@@ -77,3 +77,8 @@ docker-compose.override.yml
 
 node_modules/
 dist/
+# IntelliJ IDEA 프로젝트 설정 폴더
+.idea/
+
+# macOS 시스템 파일
+.DS_Store
