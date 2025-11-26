@@ -85,7 +85,7 @@ public class MissionController {
             summary = "진행중 유저미션 완료 처리",
             description = "진행중 상태의 유저미션을 완료 상태로 변경하고, 변경된 유저미션 정보를 반환합니다."
     )
-    @PatchMapping("/complete/{userMissionId}")
+    @PatchMapping("/userMissions/{userMissionId}/success")
     public ApiResponse<UserMissionSuccessResponse> completeUserMission(
             @Parameter(description = "유저 ID", example = "1")
             @RequestParam("userId") Long userId,
