@@ -8,6 +8,8 @@ import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -33,6 +35,23 @@ public class CustomExceptionHandler {
         return ResponseEntity
                 .status(HttpStatus.FORBIDDEN)
                 .body("접근 권한이 없습니다.");
+    }
+
+    // Spring Security 인증 예외 처리
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<String> handleBadCredentialsException(BadCredentialsException e) {
+        log.error("BadCredentialsException : {}", e.getMessage(), e);
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body("이메일 또는 비밀번호가 올바르지 않습니다.");
+    }
+
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<String> handleAuthenticationException(AuthenticationException e) {
+        log.error("AuthenticationException : {}", e.getMessage(), e);
+        return ResponseEntity
+                .status(HttpStatus.UNAUTHORIZED)
+                .body("인증에 실패했습니다: " + e.getMessage());
     }
 
     @ExceptionHandler(RuntimeException.class)

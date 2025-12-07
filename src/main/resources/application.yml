@@ -17,3 +17,8 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+jwt:
+  secret: ${JWT_TOKEN_KEY}
+  access-token-validity: 3600000  # 1시간 (밀리초)
+  refresh-token-validity: 604800000  # 7일 (밀리초)

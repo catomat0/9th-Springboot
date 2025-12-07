@@ -28,4 +28,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<MyPageResponse> findMyPageById(@Param("userId") Long userId);
 
     Long searchById(Long id);
+    
+    Optional<User> findByUserEmail(String userEmail);
+    
+    Boolean existsByUserEmail(String userEmail);
+    
+    Boolean existsByUserNickname(String userNickname);
 }
