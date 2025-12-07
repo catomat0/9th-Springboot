@@ -77,3 +77,4 @@ docker-compose.override.yml
 
 node_modules/
 dist/
+.env
